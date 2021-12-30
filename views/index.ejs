@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+        <title>Test</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="mx-auto col-lg-6 col-10">
+                        <h1 class="text-center mt-0 text-warning">
+                            Inscription
+                        </h1>
+                        <p class="text-center mb-3">
+                            Bienvenu sur notre plateforme | System noName, Veuillez vous incrire pour bénéficier de nos
+                            services.
+                        </p>
+                        <form class="text-left" method="post" action="/formSignin">
+                            <div class="form-group">
+                                <label for="prenom">Prénom:</label>
+                                <input type="text" required class="form-control" id="prenom" name="prenom"
+                                    placeholder="Votre prenom">
+                            </div>
+                            <div class="form-group">
+                                <label for="nom">Nom:</label>
+                                <input type="text" required class="form-control" id="nom" placeholder="Votre nom"
+                                    name="nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" required class="form-control" id="email" placeholder="Votre email"
+                                    name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="tele">Téléphone:</label>
+                                <input type="text" pattern="{1}[7]{1}[5-8]{7}[0-9]" required class="form-control" id="tele" name="tele"
+                                    placeholder="770001122">
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Type:</label>
+                                <select class="form-control" id="profil" name="profil">
+                                    <option value="user">user</option>
+                                    <option value="admin">admin</option>
+                                </select>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="login" id="log" hidden="true">Votre login:</label>
+                                <input type="text" required class="form-control" id="login" hidden="true" name="login"
+                                    placeholder="Votre login" >
+                            </div> -->
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="password">Mot de passe</label>
+                                    <input type="password" required class="form-control" id="pass" name="pass"
+                                        placeholder="Secret">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="password2">Confirmation mot de passe:</label>
+                                    <input type="password" required class="form-control" id="pass2" name="pass2"
+                                        placeholder="Confirmez SVP">
+                                </div>
+                            </div>
+                            <p class="text-right">
+                                Déjà inscrit: <a href="/login">CONNEXION</a>
+                                
+                            </p>
+                            <input type="submit" class="btn btn-warning" id="inscription" name="inscription" value="Inscription">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/script_js')%>
+</body>
+<footer>
+    <%- include('./partials/foot.ejs')%>
+</footer>
+
+</html>

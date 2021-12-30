@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        CONNEXION
+    </title>
+    <%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa d-inline fa-lg fa-circle"></i>
+                <b> System noName</b>
+            </a>
+        </div>
+    </nav>
+    <div class="py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-md-6 col-10 p-5">
+                    <h2 class="mb-4 text-warning">Connexion</h2>
+                    <form method="POST" action="/login_form">
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" placeholder="Entrer votre email" id="login"
+                                name="email" id="login" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="password" name="pass" id="pass" class="form-control" placeholder="Mot de passe"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <select class="form-control" id="profil" name="profil">
+                                <option>admin</option>
+                                <option>user</option>
+                            </select>
+                        </div>
+                        <div class="">
+                            <input type="submit" name="connexion" id="connexion" class="btn btn-dark"
+                                value="Connexion">
+                            <p class="text-right form-text"> Vous êtes nouveau,
+                                <a href="/">
+                                    Inscrivez vous!
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/bootstrap.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+</body>
+<footer>
+    <%- include('./partials/foot.ejs')%>
+</footer>
+
+</html>

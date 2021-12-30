@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')%>
+        <title>User home</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa d-inline fa-lg fa-circle"></i>
+                <b> System noName | Hello <span class="text-ligth">
+                    </span></b>
+            </a>
+        </div>
+        <form action="/logOut_form" method="post" class="d-flex">
+            <button class="btn btn-outline-warning" type="submit">Log Out</button>
+        </form>
+    </nav>
+
+    <%- include('./partials/foot.ejs')%>
+</body>
+
+</html>
