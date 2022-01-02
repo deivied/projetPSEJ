@@ -27,9 +27,16 @@ const userSchema = new mongoose.Schema({
         type : String,
         default : 'actif'
     },
+    img : {
+        data : Buffer,
+        contentType : String
+    },
     secret : {
         type : String,
         required: true
+    },
+    profiluser : {
+        type : Object,
     }
 })
 
