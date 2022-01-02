@@ -7,125 +7,115 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">ChatTime</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Fil d'actualites</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Setting
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/profil">Profil</a></li>
-                            <li><a class="dropdown-item" href="/password">Change password</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#"></a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <%- include('./partials/navbar-user.ejs') %>
+        <div class="container rounded mt-5 mb-5">
+            <form action="/profilUser_form" method="post">
+                <div class="row">
+                    <div class="col-md-3 border-right">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                            <img class="rounded-circle mt-5" width="150px" src="/img/profil.jpg">
+                            <span class="font-weight-bold">
+                                <%= user.prenom %>
+                            </span>
+                            <span class="text-black-50">
+                                <%= user.email %>
+                            </span>
+                            <span> </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 border-right">
+                        <div class="p-3 py-5">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="text-warning">Profile Settings</h3>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Peudonyme</label>
+                                    <input type="text" class="form-control" placeholder="first name" name="pseudo">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Surname</label>
+                                    <input type="text" class="form-control" value="" placeholder="surname"
+                                        name="repseudo">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">Mobile secondaire</label>
+                                    <input type="text" class="form-control" placeholder="Votre numero mobile ou fix"
+                                        name="tel">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Adresse 1</label>
+                                    <input type="text" class="form-control" placeholder="Votre adresse actuelle n°1"
+                                        name="addressUn">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Addresse 2</label>
+                                    <input type="text" class="form-control" placeholder="Votre adresse actuelle n°2"
+                                        name="addressDeux">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Code Postale</label>
+                                    <input type="text" class="form-control" placeholder="Code postale Ex : 15000"
+                                        name="codePostal">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <label class="labels">Pays</label>
+                                    <input type="text" class="form-control" placeholder="Votre pays" name="pays">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Region</label>
+                                    <input type="text" class="form-control" value="" placeholder="Region actuelle"
+                                        name="region">
+                                </div>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <button class="btn btn-warning" type="submit">
+                                    Save Profile
+                                </button>
+                            </div>
+                        </div>
 
-                <b> System noName | Hello <span class="text-dark">
-                        <%= user.prenom %>
-                    </span></b>
+                    </div>
+                    <div class="col-md-4 border-right">
+                        <div class="p-3 py-5">
+                            <h3 class="text-warning"> Profil <%= user.prenom %>
+                                    <%= user.nom %>
+                            </h3>
+                            <ul>
+                                <li>
+                                    <%= user.profiluser.pseudo %>
+                                </li>
+                                <li>
+                                    <%= user.profiluser.tel %>
+                                </li>
+                                <li>
+                                    <%= user.profiluser.addressUn %>
+                                </li>
+                                <li>
+                                    <%= user.profiluser.pays %>
+                                </li>
+                                <li>
+                                    <%= user.profiluser.region %>
+                                </li>
+                                <li>
+                                    <%= user.profiluser.codePostal %>
+                                </li>
+                            </ul>
+                        </div>
 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
-                <form action="/logOut_form" method="post" class="d-flex">
-                    <button class="btn btn-outline-warning" type="submit">Log Out</button>
-                </form>
-            </div>
+                    </div>
+                </div>
+            </form>
         </div>
-    </nav>
-    <div class="container rounded mt-5 mb-5">
-        <form action="/profilUser_form" method="post">
-            <div class="row">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img class="rounded-circle mt-5" width="150px"
-                            src="/img/profil.jpg">
-                        <span class="font-weight-bold">
-                            <%= user.prenom %>
-                        </span>
-                        <span class="text-black-50">
-                            <%= user.email %>
-                        </span>
-                        <span> </span>
-                    </div>
-                </div>
-                <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="text-warning">Profile Settings</h3>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <label class="labels">Peudonyme</label>
-                                <input type="text" class="form-control" placeholder="first name" value="">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="labels">Surname</label>
-                                <input type="text" class="form-control" value="" placeholder="surname">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                                <label class="labels">Mobile secondaire</label>
-                                <input type="text" class="form-control" placeholder="Votre numero mobile ou fix">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">Adresse 1</label>
-                                <input type="text" class="form-control" placeholder="Votre adresse actuelle n°1">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">Addresse 2</label>
-                                <input type="text" class="form-control" placeholder="Votre adresse actuelle n°2">
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">Code Postale</label>
-                                <input type="text" class="form-control" placeholder="Code postale Ex : 15000">
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <label class="labels">Pays</label>
-                                <input type="text" class="form-control" placeholder="Votre pays">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="labels">Region</label>
-                                <input type="text" class="form-control" value="" placeholder="Region actuelle">
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-                            <button class="btn btn-warning profile-button" type="button">
-                                Save Profile
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-        </form>
-    </div>
 
-    <%- include('./partials/foot.ejs')%>
-        <%- include('./partials/script_js.ejs')%>
+            <%- include('./partials/script_js.ejs')%>
 </body>
+<footer>
+    <%- include('./partials/foot.ejs')%>
+</footer>
 
 </html>

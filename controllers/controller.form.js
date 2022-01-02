@@ -2,6 +2,7 @@
 const User = require('../model/users.model');
 const bcrypt = require('bcrypt');
 const { hash } = require('bcrypt');
+const session = require('express-session');
 
 
 const signIn = (req, res) => {
@@ -112,7 +113,7 @@ const changePassword = (req, res) => {
         bcrypt.hash(req.body.npass, 10).then(hash => {
             User.findByIdAndUpdate(session.userid, { secret: hash }).then(() => {
                 res.status(201).json({
-                    message: 'user saved successfully!'
+                    message: 'password changed successfully!'
                 });
             }
             ).catch(
@@ -148,11 +149,20 @@ const profilPage = async (req, res) => {
 }
 
 const saveProfil = (req, res) => {
-
+    let session = req.session;
+    User.findByIdAndUpdate(session.userid, { profiluser: req.body })
+        .then(() => {
+            res.status(201).json({
+                message: 'profil saved successfully!'
+            });
+        }).catch(
+            error => {
+                res.status(400).json({
+                    error: error
+                });
+            }
+        )
 }
-
-
-
 
 
 

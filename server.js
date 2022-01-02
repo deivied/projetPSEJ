@@ -1,7 +1,8 @@
 const express = require('express');
 const flash = require('flash');
 const datalayer = require('./datalayer/datalayer');
-const routeForm = require('./router/route.form')
+const routeForm = require('./router/route.form');
+const routePublication = require('./router/route.publication');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
@@ -36,6 +37,8 @@ app.use(sessions({
 app.use(cookieParser());
 
 app.use('/', routeForm);
+app.use('/', routePublication);
+
 
 
 app.use(express.static('./public'));

@@ -17,9 +17,10 @@ router.get('/userHome', formMiddleware.redirectLogin, formController.userPage);
 router.post('/formSignin', formController.signIn);
 router.post('/login_form', formController.logIn);
 router.get('/password', formMiddleware.redirectLogin, formController.passwordPage);
-router.put('/password_form', formController.changePassword)
+router.post('/password_form', formController.changePassword)
 router.get('/profil', formMiddleware.redirectLogin, formController.profilPage);
 router.post('/profilUser_form', formController.saveProfil);
+
 
 
 
